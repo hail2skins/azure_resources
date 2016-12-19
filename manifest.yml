@@ -1,6 +1,6 @@
 ---
 applications:
-  name: azure_resources_dev
+- name: azure-resources-dev
   memory: 1024M
   instances: 1
   path: .
