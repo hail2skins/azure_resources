@@ -9,6 +9,20 @@
   </head>
 
   <body>
+  	<% if notice.present? %>
+  		<div class="container">
+	  		<aside class="alert alert-info">
+	  			<%= notice %>
+	  		</aside>
+	  	</div>
+  	<% end %>
+  	<% if alert.present? %>
+  		<div class="container">
+	  		<aside class="alert alert-danger">
+	  			<%= alert %>
+	  		</aside>
+	  	</div>
+  	<% end %>
     <%= yield %>
   </body>
 </html>
