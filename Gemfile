@@ -56,3 +56,9 @@ end
 
 # adding devise for authentication
 gem 'devise'
+
+# ransack for easy search
+gem 'ransack'
+
+# kaminari for pagination though may role own soon
+gem 'kaminari'
