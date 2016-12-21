@@ -1,9 +1,9 @@
 ---
 applications:
-- name: azure-resources
+- name: azure
   memory: 1024M
   instances: 3
   path: .
-  command: bundle exec rake db:migrate && bundle exec rails s -p $PORT
+  command: bundle exec rake cf:on_first_instance db:migrate && bundle exec rails s -p $PORT
   services:
     - azure_resources
