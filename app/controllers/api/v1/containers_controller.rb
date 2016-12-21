@@ -63,8 +63,10 @@ module Api
       private
         def compare_params
           [params["name"],
+           params["last_modified"],
            params["public_access"]].uniq == 
           [@container.name,
+           @container.last_modified,
            @container.public_access]
         end
         
@@ -75,7 +77,7 @@ module Api
 
         # Never trust parameters from the scary internet, only allow the white list through.
         def container_params
-          params.require(:container).permit(:name, :public_access)
+          params.require(:container).permit(:name, :public_access, :last_modified)
         end
     end
   end

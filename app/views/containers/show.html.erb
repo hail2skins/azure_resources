@@ -10,5 +10,10 @@
   <%= @container.public_access %>
 </p>
 
+<p>
+  <strong>Last modified:</strong>
+  <%= @container.last_modified %>
+</p>
+
 <%= link_to 'Edit', edit_container_path(@container) %> |
 <%= link_to 'Back', containers_path %>
