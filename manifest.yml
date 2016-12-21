@@ -6,4 +6,5 @@ applications:
   path: .
   command: bundle exec rake cf:on_first_instance db:migrate && bundle exec rails s -p $PORT
   services:
-    - azure_resources
+    - azure_resources_mysql
+    - azure_resources_appd
