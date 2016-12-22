@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @blob.name %>
+</p>
+
+<p>
+  <strong>Last modified:</strong>
+  <%= @blob.last_modified %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @blob.length %>
+</p>
+
+<%= link_to 'Edit', edit_blob_path(@blob) %> |
+<%= link_to 'Back', blobs_path %>

@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221211214) do
+ActiveRecord::Schema.define(version: 20161222033850) do
+
+  create_table "blobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.date     "last_modified"
+    t.integer  "length"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["last_modified"], name: "index_blobs_on_last_modified", using: :btree
+    t.index ["length"], name: "index_blobs_on_length", using: :btree
+    t.index ["name"], name: "index_blobs_on_name", using: :btree
+  end
 
   create_table "containers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
