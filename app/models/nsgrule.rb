@@ -1,0 +1,2 @@
+class Nsgrule < ApplicationRecord
+end

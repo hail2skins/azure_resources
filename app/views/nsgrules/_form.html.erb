@@ -1,0 +1,67 @@
+<%= form_for(nsgrule) do |f| %>
+  <% if nsgrule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(nsgrule.errors.count, "error") %> prohibited this nsgrule from being saved:</h2>
+
+      <ul>
+      <% nsgrule.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nsg %>
+    <%= f.text_field :nsg %>
+  </div>
+
+  <div class="field">
+    <%= f.label :direction %>
+    <%= f.text_field :direction %>
+  </div>
+
+  <div class="field">
+    <%= f.label :priority %>
+    <%= f.text_field :priority %>
+  </div>
+
+  <div class="field">
+    <%= f.label :protocol %>
+    <%= f.text_field :protocol %>
+  </div>
+
+  <div class="field">
+    <%= f.label :source_port_range %>
+    <%= f.text_field :source_port_range %>
+  </div>
+
+  <div class="field">
+    <%= f.label :destination_port_range %>
+    <%= f.text_field :destination_port_range %>
+  </div>
+
+  <div class="field">
+    <%= f.label :source_address_prefix %>
+    <%= f.text_field :source_address_prefix %>
+  </div>
+
+  <div class="field">
+    <%= f.label :destination_address_prefix %>
+    <%= f.text_field :destination_address_prefix %>
+  </div>
+
+  <div class="field">
+    <%= f.label :access %>
+    <%= f.text_field :access %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

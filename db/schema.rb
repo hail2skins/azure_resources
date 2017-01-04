@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104153832) do
+ActiveRecord::Schema.define(version: 20170104173809) do
 
   create_table "blobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -31,6 +31,31 @@ ActiveRecord::Schema.define(version: 20170104153832) do
     t.date     "last_modified"
     t.index ["last_modified"], name: "index_containers_on_last_modified", using: :btree
     t.index ["name"], name: "index_containers_on_name", using: :btree
+  end
+
+  create_table "nsgrules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "nsg"
+    t.string   "direction"
+    t.string   "priority"
+    t.string   "protocol"
+    t.string   "source_port_range"
+    t.string   "destination_port_range"
+    t.string   "source_address_prefix"
+    t.string   "destination_address_prefix"
+    t.string   "access"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["access"], name: "index_nsgrules_on_access", using: :btree
+    t.index ["destination_address_prefix"], name: "index_nsgrules_on_destination_address_prefix", using: :btree
+    t.index ["destination_port_range"], name: "index_nsgrules_on_destination_port_range", using: :btree
+    t.index ["direction"], name: "index_nsgrules_on_direction", using: :btree
+    t.index ["name"], name: "index_nsgrules_on_name", using: :btree
+    t.index ["nsg"], name: "index_nsgrules_on_nsg", using: :btree
+    t.index ["priority"], name: "index_nsgrules_on_priority", using: :btree
+    t.index ["protocol"], name: "index_nsgrules_on_protocol", using: :btree
+    t.index ["source_address_prefix"], name: "index_nsgrules_on_source_address_prefix", using: :btree
+    t.index ["source_port_range"], name: "index_nsgrules_on_source_port_range", using: :btree
   end
 
   create_table "nsgs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -4,5 +4,6 @@ class WelcomeController < ApplicationController
   	@containers = Container.all
   	@blobs = Blob.all
   	@nsgs = Nsg.all
+  	@nsgrules = Nsgrule.all
   end
 end

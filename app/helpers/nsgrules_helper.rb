@@ -1,0 +1,2 @@
+module NsgrulesHelper
+end

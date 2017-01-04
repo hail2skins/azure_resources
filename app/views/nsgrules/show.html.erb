@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @nsgrule.name %>
+</p>
+
+<p>
+  <strong>Nsg:</strong>
+  <%= @nsgrule.nsg %>
+</p>
+
+<p>
+  <strong>Direction:</strong>
+  <%= @nsgrule.direction %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @nsgrule.priority %>
+</p>
+
+<p>
+  <strong>Protocol:</strong>
+  <%= @nsgrule.protocol %>
+</p>
+
+<p>
+  <strong>Source port range:</strong>
+  <%= @nsgrule.source_port_range %>
+</p>
+
+<p>
+  <strong>Destination port range:</strong>
+  <%= @nsgrule.destination_port_range %>
+</p>
+
+<p>
+  <strong>source_address_prefix:</strong>
+  <%= @nsgrule.source_address_prefix %>
+</p>
+
+<p>
+  <strong>destination_address_prefix:</strong>
+  <%= @nsgrule.destination_address_prefix %>
+</p>
+
+<p>
+  <strong>Access:</strong>
+  <%= @nsgrule.access %>
+</p>
+
+<%= link_to 'Edit', edit_nsgrule_path(@nsgrule) %> |
+<%= link_to 'Back', nsgrules_path %>

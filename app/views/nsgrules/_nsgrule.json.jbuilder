@@ -1,0 +1,2 @@
+json.extract! nsgrule, :id, :name, :nsg, :direction, :priority, :protocol, :source_port_range, :destination_port_range, :source_address_prefix, :destination_address_prefix, :access, :created_at, :updated_at
+json.url nsgrule_url(nsgrule, format: :json)

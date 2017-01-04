@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         resources :containers
         resources :blobs
         resources :nsgs
+        resources :nsgrules
       end
     end
   end
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   resources :systems
   resources :containers
   resources :nsgs
+  resources :nsgrules
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
