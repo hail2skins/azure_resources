@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Nsgs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Resource group</th>
+      <th>Location</th>
+      <th>Provisioning state</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nsgs.each do |nsg| %>
+      <tr>
+        <td><%= nsg.name %></td>
+        <td><%= nsg.resource_group %></td>
+        <td><%= nsg.location %></td>
+        <td><%= nsg.provisioning_state %></td>
+        <td><%= link_to 'Show', nsg %></td>
+        <td><%= link_to 'Edit', edit_nsg_path(nsg) %></td>
+        <td><%= link_to 'Destroy', nsg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nsg', new_nsg_path %>

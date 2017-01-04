@@ -1,0 +1,1 @@
+json.partial! "nsgs/nsg", nsg: @nsg

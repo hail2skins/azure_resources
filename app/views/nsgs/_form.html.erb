@@ -1,0 +1,37 @@
+<%= form_for(nsg) do |f| %>
+  <% if nsg.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(nsg.errors.count, "error") %> prohibited this nsg from being saved:</h2>
+
+      <ul>
+      <% nsg.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :resource_group %>
+    <%= f.text_field :resource_group %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :provisioning_state %>
+    <%= f.text_field :provisioning_state %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

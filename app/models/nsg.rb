@@ -1,0 +1,2 @@
+class Nsg < ApplicationRecord
+end

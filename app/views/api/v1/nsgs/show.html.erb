@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @nsg.name %>
+</p>
+
+<p>
+  <strong>Resource group:</strong>
+  <%= @nsg.resource_group %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @nsg.location %>
+</p>
+
+<p>
+  <strong>Provisioning state:</strong>
+  <%= @nsg.provisioning_state %>
+</p>
+
+<%= link_to 'Edit', edit_nsg_path(@nsg) %> |
+<%= link_to 'Back', nsgs_path %>
