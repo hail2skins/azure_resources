@@ -3,6 +3,7 @@ module Api
 
     class NsgrulesController < VersionController
       before_action :get_nsg_create, only: [:create]
+      before_action :get_nsg, only: [:update, :delete, :show]
       before_action :set_nsgrules, only: [:show, :update, :destroy]
     
       # GET /nsgruless
@@ -64,6 +65,10 @@ module Api
       private
         def get_nsg_create
           @nsg = Nsg.find_by(name: params[:nsgrule][:nsg_name])
+        end
+
+        def get_nsg
+          @nsg = Nsg.find(params[:nsg_id])
         end
 
         def compare_params
