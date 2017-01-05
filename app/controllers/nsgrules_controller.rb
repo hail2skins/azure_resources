@@ -1,4 +1,5 @@
 class NsgrulesController < ApplicationController
+  #before_action :get_nsg, except: [:index]
   before_action :set_nsgrule, only: [:show, :edit, :update, :destroy]
 
   # GET /nsgrules
@@ -70,5 +71,9 @@ class NsgrulesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def nsgrule_params
       params.require(:nsgrule).permit(:name, :nsg, :direction, :priority, :protocol, :source_port_range, :destination_port_range, :source_address_prefix, :destination_address_prefix, :access)
+    end
+
+    def get_nsg
+      @nsg = Nsg.find_by(name: params[:nsg])
     end
 end

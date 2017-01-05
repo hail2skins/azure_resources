@@ -2,7 +2,7 @@ class CreateNsgrules < ActiveRecord::Migration[5.0]
   def change
     create_table :nsgrules do |t|
       t.string :name
-      t.string :nsg
+      t.string :nsg_name
       t.string :direction
       t.string :priority
       t.string :protocol
@@ -15,7 +15,7 @@ class CreateNsgrules < ActiveRecord::Migration[5.0]
       t.timestamps
     end
     add_index :nsgrules, :name
-    add_index :nsgrules, :nsg
+    add_index :nsgrules, :nsg_name
     add_index :nsgrules, :direction
     add_index :nsgrules, :priority
     add_index :nsgrules, :protocol

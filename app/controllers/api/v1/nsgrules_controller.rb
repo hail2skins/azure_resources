@@ -2,6 +2,7 @@ module Api
   module V1
 
     class NsgrulesController < VersionController
+      before_action :get_nsg_create, only: [:create]
       before_action :set_nsgrules, only: [:show, :update, :destroy]
     
       # GET /nsgruless
@@ -29,7 +30,7 @@ module Api
               end         
             end
           else
-            @nsgrule = Nsgrule.new(nsgrules_params)
+            @nsgrule = @nsg.nsgrules.new(nsgrules_params)
       
             if @nsgrule.save
               format.json { render :show, status: :ok, location: @nsgrule }
@@ -61,9 +62,13 @@ module Api
       end
     
       private
+        def get_nsg_create
+          @nsg = Nsg.find_by(name: params[:nsgrule][:nsg_name])
+        end
+
         def compare_params
           [params["name"],
-           params["nsg"],
+           params["nsg_name"],
            params["direction"],
            params["priority"],
            params["protocol"],
@@ -73,7 +78,7 @@ module Api
            params["destination_address_prefix"],
            params["access"]].uniq == 
           [@nsgrule.name,
-           @nsgrule.nsg,
+           @nsgrule.nsg_name,
            @nsgrule.direction,
            @nsgrule.priority,
            @nsgrule.protocol,
@@ -92,7 +97,7 @@ module Api
         # Only allow a trusted parameter "white list" through.
         def nsgrules_params
           params.require(:nsgrule).permit(:name, 
-                                          :nsg, 
+                                          :nsg_name, 
                                           :direction, 
                                           :priority, 
                                           :protocol, 
@@ -100,7 +105,8 @@ module Api
                                           :destination_port_range, 
                                           :source_address_prefix, 
                                           :destination_address_prefix, 
-                                          :access)
+                                          :access,
+                                          :nsg_id)
         end
     end
   end

@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Nsg</th>
+      <th>Nsg Name</th>
       <th>Direction</th>
       <th>Priority</th>
       <th>Protocol</th>
@@ -23,7 +23,7 @@
     <% @nsgrules.each do |nsgrule| %>
       <tr>
         <td><%= nsgrule.name %></td>
-        <td><%= nsgrule.nsg %></td>
+        <td><%= nsgrule.nsg_name %></td>
         <td><%= nsgrule.direction %></td>
         <td><%= nsgrule.priority %></td>
         <td><%= nsgrule.protocol %></td>

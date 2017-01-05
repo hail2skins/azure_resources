@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104173809) do
+ActiveRecord::Schema.define(version: 20170105173059) do
 
   create_table "blobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20170104173809) do
 
   create_table "nsgrules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.string   "nsg"
+    t.string   "nsg_name"
     t.string   "direction"
     t.string   "priority"
     t.string   "protocol"
@@ -46,12 +46,14 @@ ActiveRecord::Schema.define(version: 20170104173809) do
     t.string   "access"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "nsg_id"
     t.index ["access"], name: "index_nsgrules_on_access", using: :btree
     t.index ["destination_address_prefix"], name: "index_nsgrules_on_destination_address_prefix", using: :btree
     t.index ["destination_port_range"], name: "index_nsgrules_on_destination_port_range", using: :btree
     t.index ["direction"], name: "index_nsgrules_on_direction", using: :btree
     t.index ["name"], name: "index_nsgrules_on_name", using: :btree
-    t.index ["nsg"], name: "index_nsgrules_on_nsg", using: :btree
+    t.index ["nsg_id"], name: "index_nsgrules_on_nsg_id", using: :btree
+    t.index ["nsg_name"], name: "index_nsgrules_on_nsg_name", using: :btree
     t.index ["priority"], name: "index_nsgrules_on_priority", using: :btree
     t.index ["protocol"], name: "index_nsgrules_on_protocol", using: :btree
     t.index ["source_address_prefix"], name: "index_nsgrules_on_source_address_prefix", using: :btree
