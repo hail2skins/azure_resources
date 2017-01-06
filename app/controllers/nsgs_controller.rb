@@ -4,7 +4,12 @@ class NsgsController < ApplicationController
   # GET /nsgs
   # GET /nsgs.json
   def index
-    @nsgs = Nsg.all
+    @q = Nsg.ransack(params[:q])
+    @q.sorts = 'nsgrules_count desc' if @q.sorts.empty?
+    @nsgs = @q.result(distinct: true)
+    @q.build_condition    
+    
+    #@nsgs = Nsg.all
   end
 
   # GET /nsgs/1

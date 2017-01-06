@@ -5,26 +5,25 @@
 <table class="table table-striped">
   <thead class="thead-inverse">
     <tr>
-      <th>Name</th>
-      <th>Resource group</th>
-      <th>Location</th>
-      <th>Provisioning state</th>
-      <th>NSG Rules</th>
-      <th colspan="3"></th>
+      <th><%= sort_link(@q, :name) %></th>
+      <th><%= sort_link(@q, :resource_group) %></th>
+      <th><%= sort_link(@q, :location) %></th>
+      <th><%= sort_link(@q, :provisioning_state) %></th>
+      <th><%= sort_link(@q, :nsgrules_count, "NSG Rules") %></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @nsgs.each do |nsg| %>
       <tr>
-        <td><%= nsg.name %></td>
+        <td><%= link_to nsg.name, nsg %></td>
         <td><%= nsg.resource_group %></td>
         <td><%= nsg.location %></td>
         <td><%= nsg.provisioning_state %></td>
-        <td><%= nsg.nsgrules.count %></td>
-        <td><%= link_to 'Show', nsg %></td>
-        <td><%= link_to 'Edit', edit_nsg_path(nsg) %></td>
-        <td><%= link_to 'Destroy', nsg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= nsg.nsgrules_count %></td>
+        <td><%= link_to 'Edit', edit_nsg_path(nsg), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', nsg, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>

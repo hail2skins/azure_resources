@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105173059) do
+ActiveRecord::Schema.define(version: 20170105232228) do
 
   create_table "blobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -67,8 +67,10 @@ ActiveRecord::Schema.define(version: 20170105173059) do
     t.string   "provisioning_state"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "nsgrules_count"
     t.index ["location"], name: "index_nsgs_on_location", using: :btree
     t.index ["name"], name: "index_nsgs_on_name", using: :btree
+    t.index ["nsgrules_count"], name: "index_nsgs_on_nsgrules_count", using: :btree
     t.index ["resource_group"], name: "index_nsgs_on_resource_group", using: :btree
   end
 
