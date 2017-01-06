@@ -8,6 +8,11 @@ class SystemsController < ApplicationController
     @q.sorts = 'name asc' if @q.sorts.empty?
     @systems = @q.result.page(params[:page])
     @q.build_condition
+    
+    respond_to do |format|
+      format.html
+      format.csv { send_data @systems.to_csv, filename: "systems-#{Date.today}.csv"}
+    end
   end
 
   # GET /systems/1
