@@ -17,8 +17,8 @@ module Api
     
       def create
       # POST /nsgruless
-        @nsgrule = Nsgrule.find_by(name: params[:nsgrule][:name])
-        
+        @nsgrule = Nsgrule.find_by(name: params[:nsgrule][:name], nsg_name: params[:nsgrule][:nsg_name])
+       
         respond_to do |format|
           if @nsgrule
             if compare_params
