@@ -1,11 +1,15 @@
 class NsgrulesController < ApplicationController
-  #before_action :get_nsg, except: [:index]
+  before_action :get_nsg, except: [:index]
   before_action :set_nsgrule, only: [:show, :edit, :update, :destroy]
 
   # GET /nsgrules
   # GET /nsgrules.json
   def index
-    @nsgrules = Nsgrule.all
+    @q = Nsgrule.ransack(params[:q])
+    @q.sorts = 'nsg_name asc' if @q.sorts.empty?
+    @nsgrules = @q.result(distinct: true)
+    @q.build_condition    
+    #@nsgrules = Nsgrule.all
   end
 
   # GET /nsgrules/1
@@ -74,6 +78,6 @@ class NsgrulesController < ApplicationController
     end
 
     def get_nsg
-      @nsg = Nsg.find_by(name: params[:nsg])
+      @nsg = Nsg.find(params[:nsg_id])
     end
 end
