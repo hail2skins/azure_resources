@@ -4,6 +4,7 @@ class System < ApplicationRecord
     attributes = %w{name 
                     resource_group 
                     availability_set 
+                    location
                     operating_system 
                     vm_size 
                     operating_system_version
